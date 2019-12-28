@@ -3,6 +3,8 @@ import "./SignIn.styles.scss"
 import FormInput from "../form-input/FormInput"
 import CustomButton from "../custom-button/CustomButton"
 
+import { sigInWithGoogle } from "../../firebase/firebase.utils";
+
 export default class SignIn extends Component {
   state = {
     email: "",
@@ -15,11 +17,10 @@ export default class SignIn extends Component {
     this.setState({ email: "", password: "" })
   }
 
-  handleChange = (event ) => {
-    const {name, value} = event.target
-  this.setState({ [name]: value })
-}
-
+  handleChange = event => {
+    const { name, value } = event.target
+    this.setState({ [name]: value })
+  }
 
   render() {
     return (
@@ -27,34 +28,29 @@ export default class SignIn extends Component {
         <h2> I already have an account</h2>
         <span>Sign in with your email and password</span>
 
-        <form  onSubmit={this.handleSubmit}>
-        
-     
+        <form onSubmit={this.handleSubmit}>
           <FormInput
             type="email"
             name="email"
-            label='emial'
+            label="emial"
             value={this.state.email}
             handleChange={this.handleChange}
             autoComplete="email"
             required
           />
-         
+
           <FormInput
             type="password"
             name="password"
-            label='password'
+            label="password"
             value={this.state.password}
             handleChange={this.handleChange}
             required
           />
-        
         </form>
 
-        <CustomButton type="submit">
-        Sign In
-        </CustomButton>
-        
+        <CustomButton type="submit">Sign In</CustomButton>
+        <CustomButton onClick={sigInWithGoogle} >Sign in with Google</CustomButton>
       </div>
     )
   }
