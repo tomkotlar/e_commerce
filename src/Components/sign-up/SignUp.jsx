@@ -20,7 +20,6 @@ export default class SignUp extends Component {
       alert("passwords don't match")
       return
     }
-
     try {
       const { user } = await auth.createUserWithEmailAndPassword( email, password )
       await createUserProfileDocument(user, { displayName })
