@@ -40,7 +40,6 @@ export default class SignIn extends Component {
             handleChange={this.handleChange}
             value={email}
             label="email"
-            autoComp
             required
           />
           <FormInput
