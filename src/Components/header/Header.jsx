@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import CardIcon from "../card-icon/CardIcon";
 import CardDropdown from '../card-dropdown/CardDropdown';
 
-const Header = ({currentUser}) => {
+const Header = ({currentUser, hidden}) => {
     return (
         <div className='header'>
             <Link className='logo-container' to='/' >
@@ -35,13 +35,16 @@ const Header = ({currentUser}) => {
                 }
                 <CardIcon />
             </div>
-            <CardDropdown />
+                {hidden ? null :  <CardDropdown /> }
+           
         </div>
     )
 }
 
-const mapStateProps = state => ({
-    currentUser: state.user.currentUser
+// nested destructuring
+const mapStateProps = ({user: {currentUser}, cart: {hidden}}) => ({ 
+    currentUser,
+    hidden
 })
 
 
