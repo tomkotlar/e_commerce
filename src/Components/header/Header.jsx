@@ -3,7 +3,8 @@ import "./Header.styles.scss"
 import {ReactComponent as Logo} from '../../graphic_assets/crown.svg'
 import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils"
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'
+import CardIcon from "../card-icon/CardIcon";
 
 const Header = ({currentUser}) => {
     return (
@@ -31,6 +32,7 @@ const Header = ({currentUser}) => {
                         SIGN IN
                     </Link>
                 }
+                <CardIcon />
             </div>
         </div>
     )
