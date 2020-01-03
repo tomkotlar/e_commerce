@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../../firebase/firebase.utils"
 import { connect } from 'react-redux'
 import CardIcon from "../card-icon/CardIcon";
+import CardDropdown from '../card-dropdown/CardDropdown';
 
 const Header = ({currentUser}) => {
     return (
@@ -34,6 +35,7 @@ const Header = ({currentUser}) => {
                 }
                 <CardIcon />
             </div>
+            <CardDropdown />
         </div>
     )
 }
